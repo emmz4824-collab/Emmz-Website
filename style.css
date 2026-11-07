@@ -1,0 +1,2606 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+--background: #080b14;
+--surface: #111625;
+--text: #f5f7ff;
+--muted: #a4abc0;
+--accent: #8b5cf6;
+--cyan: #22d3ee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  }
+
+body {
+min-height: 100vh;
+background: var(--background);
+color: var(--text);
+font-family: 'Inter', sans-serif;
+line-height: 1.7;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+button,
+input,
+textarea {
+font: inherit;
+}
+
+button,
+a {
+-webkit-tap-highlight-color: transparent;
+}
+
+.navbar {
+position: sticky;
+top: 0;
+z-index: 100;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 20px;
+padding: 18px 7%;
+border-bottom: 1px solid #ffffff12;
+background: #080b14ed;
+backdrop-filter: blur(16px);
+}
+
+.logo {
+font-size: 26px;
+font-weight: 800;
+letter-spacing: -1px;
+}
+
+.logo span {
+color: var(--cyan);
+}
+
+.nav-links {
+display: flex;
+align-items: center;
+gap: 24px;
+}
+
+.nav-links a {
+color: var(--muted);
+font-size: 14px;
+transition: color 0.25s;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+color: var(--cyan);
+}
+
+.nav-button,
+.primary-button {
+display: inline-block;
+padding: 12px 20px;
+border: 0;
+border-radius: 10px;
+background: linear-gradient(120deg, var(--accent), #6366f1);
+color: white;
+font-weight: 700;
+cursor: pointer;
+transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.nav-button:hover,
+.primary-button:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 30px #8b5cf655;
+}
+
+.menu-toggle {
+display: none;
+border: 1px solid #ffffff20;
+border-radius: 8px;
+padding: 8px 12px;
+background: var(--surface);
+color: white;
+cursor: pointer;
+}
+
+.hero,
+.page-hero {
+position: relative;
+isolation: isolate;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 110px 7%;
+text-align: center;
+}
+
+.hero {
+min-height: 640px;
+}
+
+.hero::before,
+.page-hero::before {
+content: "";
+position: absolute;
+z-index: -1;
+top: 5%;
+left: 50%;
+width: 340px;
+height: 340px;
+transform: translateX(-50%);
+border-radius: 50%;
+background: var(--accent);
+filter: blur(140px);
+opacity: 0.24;
+pointer-events: none;
+}
+
+.tag {
+margin-bottom: 20px;
+color: var(--cyan);
+font-size: 12px;
+font-weight: 800;
+letter-spacing: 3px;
+}
+
+.hero h1,
+.page-hero h1 {
+max-width: 900px;
+margin-bottom: 24px;
+font-size: clamp(42px, 7vw, 78px);
+font-weight: 800;
+line-height: 1.12;
+letter-spacing: -3px;
+}
+
+.hero h1 span,
+.page-hero h1 span {
+display: block;
+background: linear-gradient(90deg, var(--accent), var(--cyan));
+background-clip: text;
+-webkit-background-clip: text;
+color: transparent;
+}
+
+.description {
+max-width: 620px;
+color: var(--muted);
+font-size: 17px;
+}
+
+.buttons {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 15px;
+margin-top: 32px;
+}
+
+.secondary-button {
+padding: 11px 21px;
+border: 1px solid #ffffff30;
+border-radius: 10px;
+transition: background 0.25s;
+}
+
+.secondary-button:hover {
+background: #ffffff12;
+}
+
+.stats {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 65px;
+margin-top: 70px;
+}
+
+.stats h2 {
+font-size: 28px;
+}
+
+.stats p {
+color: var(--muted);
+font-size: 13px;
+}
+
+.section {
+padding: 85px 7%;
+text-align: center;
+}
+
+.features {
+background: #0d1120;
+}
+
+.section > h2,
+.content-panel h2,
+.cta h2 {
+margin-bottom: 35px;
+font-size: clamp(28px, 4vw, 42px);
+line-height: 1.25;
+letter-spacing: -1px;
+}
+
+.cards {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 22px;
+text-align: left;
+}
+
+.card {
+display: block;
+padding: 30px 25px;
+border: 1px solid #ffffff12;
+border-radius: 18px;
+background: var(--surface);
+transition: transform 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+transform: translateY(-6px);
+border-color: var(--accent);
+}
+
+.icon {
+margin-bottom: 16px;
+font-size: 32px;
+}
+
+.card h3 {
+margin-bottom: 10px;
+font-size: 21px;
+}
+
+.card p,
+.content-panel p,
+.cta > p,
+.about-text {
+color: var(--muted);
+font-size: 15px;
+}
+
+.card-link {
+display: inline-block;
+margin-top: 18px;
+color: var(--cyan);
+font-size: 14px;
+font-weight: 700;
+}
+
+.cta {
+padding: 90px 20px;
+text-align: center;
+}
+
+.cta > p {
+margin: -20px 0 28px;
+}
+
+.content-section {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 24px;
+text-align: left;
+}
+
+.content-panel {
+padding: 35px;
+border: 1px solid #ffffff15;
+border-radius: 18px;
+background: var(--surface);
+}
+
+.content-panel h2 {
+margin-bottom: 15px;
+}
+
+.search-box {
+max-width: 600px;
+margin: 0 auto 35px;
+text-align: left;
+}
+
+.search-box label,
+.contact-form label {
+display: block;
+margin-bottom: 9px;
+color: var(--text);
+font-size: 14px;
+font-weight: 600;
+}
+
+.search-box input,
+.contact-form input,
+.contact-form textarea {
+width: 100%;
+padding: 14px 16px;
+border: 1px solid #ffffff20;
+border-radius: 10px;
+outline: none;
+background: var(--surface);
+color: var(--text);
+}
+
+.search-box input:focus,
+.contact-form input:focus,
+.contact-form textarea:focus {
+border-color: var(--accent);
+box-shadow: 0 0 0 3px #8b5cf622;
+}
+
+.search-status,
+.empty-results {
+margin-top: 15px;
+color: var(--muted);
+font-size: 14px;
+}
+
+.contact-section {
+padding: 20px 20px 90px;
+}
+
+.contact-form {
+max-width: 650px;
+margin: 0 auto;
+padding: 32px;
+border: 1px solid #ffffff15;
+border-radius: 18px;
+background: var(--surface);
+}
+
+.contact-form input,
+.contact-form textarea {
+margin-bottom: 22px;
+}
+
+.contact-form textarea {
+resize: vertical;
+}
+
+.contact-form button {
+width: 100%;
+}
+
+.form-status {
+margin-top: 15px;
+color: var(--cyan);
+overflow-wrap: anywhere;
+}
+
+.form-note {
+margin-top: 15px;
+color: var(--muted);
+font-size: 12px;
+}
+
+.footer {
+padding: 30px 20px;
+border-top: 1px solid #ffffff12;
+text-align: center;
+}
+
+.footer .logo {
+display: inline-block;
+margin-bottom: 8px;
+}
+
+.footer p {
+color: var(--muted);
+font-size: 13px;
+}
+
+.copyright {
+margin-top: 12px;
+}
+
+[hidden] {
+display: none !important;
+}
+
+@media (max-width: 900px) {
+.navbar {
+flex-wrap: wrap;
+padding: 17px 5%;
+}
+
+.menu-toggle {
+    display: block;
+    margin-left: auto;
+}
+
+.navbar > .nav-button {
+    display: none;
+}
+
+.nav-links {
+    display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+}
+
+.nav-links.open {
+    display: flex;
+}
+
+.nav-links a {
+    padding: 12px;
+}
+
+.cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+}
+
+@media (max-width: 600px) {
+.hero,
+.page-hero {
+padding: 85px 6%;
+}
+
+.hero {
+    min-height: 570px;
+}
+
+.hero h1,
+.page-hero h1 {
+    font-size: clamp(38px, 11vw, 55px);
+    letter-spacing: -2px;
+}
+
+.description {
+    font-size: 15px;
+}
+
+.stats {
+    gap: 28px;
+    margin-top: 50px;
+}
+
+.section {
+    padding: 65px 6%;
+}
+
+.cards,
+.content-section {
+    grid-template-columns: 1fr;
+}
+
+.content-panel,
+.contact-form {
+    padding: 24px;
+}
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+*,
+*::before,
+*::after {
+scroll-behavior: auto !important;
+transition-duration: 0.01ms !important;
+}
+}
+.card {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #22d3ee;
+    font-weight: 600;
+}
+/* =========================================
+   NEXORA PROFESSIONAL SERVICES PAGE
+========================================= */
+
+.services-hero {
+    max-width: 1100px;
+    margin: auto;
+    padding: 110px 24px 90px;
+    text-align: center;
+}
+
+.services-badge,
+.services-label {
+    display: inline-block;
+    color: var(--cyan, #22d3ee);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.services-hero h1 {
+    margin: 24px 0;
+    font-size: clamp(36px, 6vw, 68px);
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.services-hero h1 span {
+    background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.services-hero p {
+    max-width: 700px;
+    margin: 0 auto 32px;
+    color: var(--muted, #a4abc0);
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+.services-section,
+.services-process {
+    max-width: 1150px;
+    margin: auto;
+    padding: 65px 24px;
+}
+
+.services-heading {
+    max-width: 720px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.services-heading h2 {
+    margin: 16px 0;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.2;
+}
+
+.services-heading p {
+    color: var(--muted, #a4abc0);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Service Cards */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px;
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-radius: 22px;
+    background: var(--surface, #111625);
+    color: var(--text, #f5f7ff);
+    text-decoration: none;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--cyan, #22d3ee);
+    box-shadow: 0 15px 40px rgba(34, 211, 238, 0.09);
+}
+
+.service-card:focus-visible {
+    outline: 2px solid var(--cyan, #22d3ee);
+    outline-offset: 4px;
+}
+
+.service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    margin-bottom: 24px;
+    border-radius: 18px;
+    background: rgba(139, 92, 246, 0.15);
+    font-size: 30px;
+}
+
+.service-number {
+    margin-bottom: 12px;
+    color: var(--cyan, #22d3ee);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.service-card h3 {
+    margin: 0 0 14px;
+    font-size: 24px;
+}
+
+.service-card p {
+    margin: 0 0 24px;
+    color: var(--muted, #a4abc0);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.service-link {
+    margin-top: auto;
+    color: var(--cyan, #22d3ee);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Process Cards */
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.process-card {
+    padding: 27px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 18px;
+    background: var(--surface, #111625);
+}
+
+.process-number {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--cyan, #22d3ee);
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.process-card h3 {
+    margin-bottom: 12px;
+    font-size: 19px;
+}
+
+.process-card p {
+    color: var(--muted, #a4abc0);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Call To Action */
+
+.services-cta {
+    margin: 55px 24px 80px;
+    padding: 65px 25px;
+    text-align: center;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 25px;
+    background: linear-gradient(
+        135deg,
+        rgba(139, 92, 246, 0.12),
+        rgba(34, 211, 238, 0.07)
+    );
+}
+
+.services-cta h2 {
+    margin: 18px 0;
+    font-size: clamp(27px, 4vw, 40px);
+}
+
+.services-cta p {
+    max-width: 620px;
+    margin: 0 auto 28px;
+    color: var(--muted, #a4abc0);
+    line-height: 1.9;
+}
+
+.services-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.services-secondary-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px;
+    border: 1px solid rgba(139, 92, 246, 0.5);
+    border-radius: 12px;
+    color: var(--text, #f5f7ff);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.services-secondary-button:hover {
+    border-color: var(--cyan, #22d3ee);
+    transform: translateY(-3px);
+}
+
+/* Footer */
+
+.services-footer {
+    padding: 40px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.services-footer > p {
+    margin-top: 14px;
+    color: var(--muted, #a4abc0);
+    line-height: 1.8;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px;
+    margin: 25px 0;
+}
+
+.footer-links a {
+    color: var(--muted, #a4abc0);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: var(--cyan, #22d3ee);
+}
+
+.services-footer .footer-copyright {
+    font-size: 13px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 750px) {
+    .services-hero {
+        padding: 75px 22px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-section,
+    .services-process {
+        padding: 45px 18px;
+    }
+
+    .service-card {
+        padding: 25px;
+    }
+
+    .services-cta {
+        margin: 30px 16px 50px;
+        padding: 45px 20px;
+    }
+
+    .services-cta-buttons {
+        flex-direction: column;
+    }
+
+    .services-cta-buttons a {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .footer-links {
+        gap: 15px;
+    }
+}
+ /* =================================
+NEXORA SERVICE DETAIL PAGES
+================================= */
+
+.detail-hero {
+min-height: 65vh;
+padding: 100px 8% 70px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
+
+.detail-hero > span {
+color: #22d3ee;
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 3px;
+margin-bottom: 20px;
+}
+
+.detail-hero h1 {
+font-size: clamp(36px, 6vw, 68px);
+margin-bottom: 24px;
+line-height: 1.2;
+}
+
+.detail-hero h1 span,
+.detail-section h2 span {
+background: linear-gradient(135deg, #a78bfa, #22d3ee);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+}
+
+.detail-hero p {
+max-width: 760px;
+line-height: 1.9;
+margin-bottom: 30px;
+color: #cbd5e1;
+}
+
+.detail-section {
+padding: 65px 8%;
+text-align: center;
+}
+
+.detail-section h2 {
+font-size: clamp(27px, 4vw, 42px);
+margin-bottom: 25px;
+}
+
+.detail-section > p {
+max-width: 850px;
+margin: 0 auto 30px;
+line-height: 1.9;
+color: #cbd5e1;
+}
+
+.detail-grid {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 25px;
+max-width: 1100px;
+margin: 40px auto 0;
+text-align: left;
+}
+
+.detail-card {
+padding: 30px;
+border: 1px solid rgba(167, 139, 250, 0.25);
+border-radius: 20px;
+background: rgba(255, 255, 255, 0.035);
+transition: transform 0.3s ease, border-color 0.3s ease,
+box-shadow 0.3s ease;
+}
+
+.detail-card:hover {
+transform: translateY(-7px);
+border-color: #22d3ee;
+box-shadow: 0 12px 35px rgba(34, 211, 238, 0.09);
+}
+
+.detail-card h3 {
+font-size: 21px;
+margin-bottom: 15px;
+}
+
+.detail-card p {
+color: #cbd5e1;
+line-height: 1.8;
+}
+
+.detail-hero .btn,
+.detail-section .btn {
+display: inline-block;
+padding: 14px 28px;
+border-radius: 12px;
+background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+color: #ffffff;
+font-weight: 700;
+text-decoration: none;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail-hero .btn:hover,
+.detail-section .btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+footer {
+padding: 30px 8%;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: space-between;
+gap: 18px;
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+color: #cbd5e1;
+}
+
+footer a {
+color: #22d3ee;
+text-decoration: none;
+}
+
+footer a:hover {
+color: #a78bfa;
+}
+
+/* TABLETS AND MOBILE PHONES */
+
+@media (max-width: 768px) {
+.detail-hero {
+min-height: auto;
+padding: 80px 6% 55px;
+}
+
+.detail-section {
+    padding: 45px 6%;
+}
+
+.detail-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.detail-card {
+    padding: 24px;
+}
+
+footer {
+    flex-direction: column;
+    text-align: center;
+}
+
+}
+/* ==========================================
+   NEXORA EXPLORE PAGE
+========================================== */
+
+.getting-started {
+    padding: 100px 7% 80px;
+    min-height: 75vh;
+}
+
+.explore-heading {
+    max-width: 900px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+    color: #22d3ee;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.explore-heading h1 {
+    font-size: clamp(35px, 5vw, 60px);
+    line-height: 1.2;
+    margin-bottom: 22px;
+    color: #ffffff;
+}
+
+.explore-heading h1 span,
+.explore-cta h2 span {
+    background: linear-gradient(135deg, #a78bfa, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.explore-heading p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #a9bad3;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+.explore-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.explore-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 270px;
+    padding: 32px 28px;
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(145deg, rgba(14, 34, 76, 0.95), rgba(5, 19, 45, 0.95));
+    border: 1px solid rgba(34, 211, 238, 0.14);
+    border-radius: 22px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.explore-card:hover {
+    transform: translateY(-9px);
+    border-color: #22d3ee;
+    background: linear-gradient(145deg, rgba(19, 52, 105, 0.98), rgba(8, 25, 58, 0.98));
+    box-shadow: 0 15px 45px rgba(34, 211, 238, 0.12), 0 0 18px rgba(34, 211, 238, 0.05);
+}
+
+.explore-card:focus-visible {
+    outline: 3px solid #22d3ee;
+    outline-offset: 5px;
+}
+
+.option-number {
+    color: #22d3ee;
+    font-size: 35px;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.explore-card h2 {
+    font-size: 22px;
+    margin: 0 0 18px;
+    line-height: 1.4;
+}
+
+.explore-card p {
+    color: #b8c7dd;
+    font-size: 15px;
+    line-height: 1.9;
+    margin: 0 0 25px;
+}
+
+.option-link {
+    margin-top: auto;
+    padding-top: 5px;
+    color: #22d3ee;
+    font-size: 14px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition: color 0.3s ease, gap 0.3s ease;
+}
+
+.explore-card:hover .option-link {
+    color: #a78bfa;
+    gap: 15px;
+}
+
+/* CALL TO ACTION */
+
+.explore-cta {
+    max-width: 1050px;
+    margin: 20px auto 90px;
+    padding: 65px 7%;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(20, 32, 72, 0.8), rgba(8, 28, 54, 0.8));
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 25px;
+}
+
+.explore-cta h2 {
+    color: #ffffff;
+    font-size: clamp(28px, 4vw, 43px);
+    line-height: 1.3;
+    margin: 10px 0 22px;
+}
+
+.explore-cta p {
+    max-width: 720px;
+    margin: 0 auto 30px;
+    color: #b8c7dd;
+    line-height: 1.9;
+}
+
+.explore-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.explore-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explore-btn:hover {
+    transform: translateY(-4px);
+}
+
+.explore-btn.primary {
+    background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(34, 211, 238, 0.1);
+}
+
+.explore-btn.primary:hover {
+    box-shadow: 0 12px 30px rgba(34, 211, 238, 0.2);
+}
+
+.explore-btn.secondary {
+    border: 1px solid #22d3ee;
+    color: #22d3ee;
+    background: transparent;
+}
+
+.explore-btn.secondary:hover {
+    background: rgba(34, 211, 238, 0.08);
+}
+
+/* FOOTER */
+
+.explore-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 28px 7%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.explore-footer p {
+    color: #a9bad3;
+    margin: 0;
+}
+
+.explore-footer a {
+    color: #22d3ee;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.explore-footer a:hover {
+    color: #a78bfa;
+}
+
+/* TABLET */
+
+@media (max-width: 950px) {
+    .explore-options {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .explore-card:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .getting-started {
+        padding: 70px 6% 55px;
+    }
+
+    .explore-heading {
+        margin-bottom: 40px;
+    }
+
+    .explore-heading p {
+        font-size: 15px;
+    }
+
+    .explore-options {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .explore-card:last-child {
+        grid-column: auto;
+    }
+
+    .explore-card {
+        min-height: 245px;
+        padding: 27px 24px;
+    }
+
+    .option-number {
+        margin-bottom: 22px;
+    }
+
+    .explore-cta {
+        margin: 0 6% 60px;
+        padding: 45px 23px;
+    }
+
+    .explore-buttons {
+        flex-direction: column;
+    }
+
+    .explore-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .explore-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* ==========================================
+   NEXORA EXPLORE PAGE
+========================================== */
+
+.getting-started {
+    padding: 100px 7% 80px;
+    min-height: 75vh;
+}
+
+/* SECTION HEADING */
+
+.explore-heading {
+    max-width: 900px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+    color: #22d3ee;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.explore-heading h1 {
+    font-size: clamp(35px, 5vw, 60px);
+    line-height: 1.2;
+    margin-bottom: 22px;
+    color: #ffffff;
+}
+
+.explore-heading h1 span,
+.explore-cta h2 span {
+    background: linear-gradient(135deg, #a78bfa, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.explore-heading p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #a9bad3;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+/* THREE OPTIONS */
+
+.explore-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* CLICKABLE CARDS */
+
+.explore-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 270px;
+    padding: 32px 28px;
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(
+        145deg,
+        rgba(14, 34, 76, 0.95),
+        rgba(5, 19, 45, 0.95)
+    );
+    border: 1px solid rgba(34, 211, 238, 0.14);
+    border-radius: 22px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+/* CARD HOVER EFFECT */
+
+.explore-card:hover {
+    transform: translateY(-9px);
+    border-color: #22d3ee;
+    background: linear-gradient(
+        145deg,
+        rgba(19, 52, 105, 0.98),
+        rgba(8, 25, 58, 0.98)
+    );
+    box-shadow:
+        0 15px 45px rgba(34, 211, 238, 0.12),
+        0 0 18px rgba(34, 211, 238, 0.05);
+}
+
+/* KEYBOARD ACCESSIBILITY */
+
+.explore-card:focus-visible {
+    outline: 3px solid #22d3ee;
+    outline-offset: 5px;
+}
+
+/* OPTION NUMBERS */
+
+.option-number {
+    color: #22d3ee;
+    font-size: 35px;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+/* CARD HEADINGS */
+
+.explore-card h2 {
+    font-size: 22px;
+    margin: 0 0 18px;
+    line-height: 1.4;
+}
+
+/* CARD DESCRIPTION */
+
+.explore-card p {
+    color: #b8c7dd;
+    font-size: 15px;
+    line-height: 1.9;
+    margin: 0 0 25px;
+}
+
+/* CARD LINKS */
+
+.option-link {
+    margin-top: auto;
+    padding-top: 5px;
+    color: #22d3ee;
+    font-size: 14px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    transition:
+        color 0.3s ease,
+        gap 0.3s ease;
+}
+
+.explore-card:hover .option-link {
+    color: #a78bfa;
+    gap: 15px;
+}
+
+/* ==========================================
+   EXPLORE CALL TO ACTION
+========================================== */
+
+.explore-cta {
+    max-width: 1050px;
+    margin: 20px auto 90px;
+    padding: 65px 7%;
+    text-align: center;
+    background: linear-gradient(
+        135deg,
+        rgba(20, 32, 72, 0.8),
+        rgba(8, 28, 54, 0.8)
+    );
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 25px;
+}
+
+.explore-cta h2 {
+    color: #ffffff;
+    font-size: clamp(28px, 4vw, 43px);
+    line-height: 1.3;
+    margin: 10px 0 22px;
+}
+
+.explore-cta p {
+    max-width: 720px;
+    margin: 0 auto 30px;
+    color: #b8c7dd;
+    line-height: 1.9;
+}
+
+/* BUTTON CONTAINER */
+
+.explore-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* CTA BUTTONS */
+
+.explore-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 25px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.explore-btn:hover {
+    transform: translateY(-4px);
+}
+
+.explore-btn.primary {
+    background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(34, 211, 238, 0.1);
+}
+
+.explore-btn.primary:hover {
+    box-shadow: 0 12px 30px rgba(34, 211, 238, 0.2);
+}
+
+.explore-btn.secondary {
+    border: 1px solid #22d3ee;
+    color: #22d3ee;
+    background: transparent;
+}
+
+.explore-btn.secondary:hover {
+    background: rgba(34, 211, 238, 0.08);
+}
+
+/* ==========================================
+   EXPLORE FOOTER
+========================================== */
+
+.explore-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 28px 7%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.explore-footer p {
+    color: #a9bad3;
+    margin: 0;
+}
+
+.explore-footer a {
+    color: #22d3ee;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.explore-footer a:hover {
+    color: #a78bfa;
+}
+
+/* ==========================================
+   TABLET RESPONSIVENESS
+========================================== */
+
+@media (max-width: 950px) {
+    .explore-options {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .explore-card:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVENESS
+========================================== */
+
+@media (max-width: 600px) {
+    .getting-started {
+        padding: 70px 6% 55px;
+    }
+
+    .explore-heading {
+        margin-bottom: 40px;
+    }
+
+    .explore-heading p {
+        font-size: 15px;
+    }
+
+    .explore-options {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .explore-card:last-child {
+        grid-column: auto;
+    }
+
+    .explore-card {
+        min-height: 245px;
+        padding: 27px 24px;
+    }
+
+    .option-number {
+        margin-bottom: 22px;
+    }
+
+    .explore-cta {
+        margin: 0 6% 60px;
+        padding: 45px 23px;
+    }
+
+    .explore-buttons {
+        flex-direction: column;
+    }
+
+    .explore-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .explore-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* =====================================
+   NEXORA PROFESSIONAL SERVICES PAGE
+===================================== */
+
+.services-section {
+    padding: 100px 7%;
+    min-height: 75vh;
+}
+
+/* SECTION HEADING */
+
+.services-heading {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.services-heading h1 {
+    color: #ffffff;
+    font-size: clamp(36px, 5vw, 60px);
+    margin: 12px 0 20px;
+}
+
+.services-heading h1 span {
+    background: linear-gradient(135deg, #a78bfa, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.services-heading p {
+    color: #a9bad3;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+/* SERVICES GRID */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* CLICKABLE SERVICE CARDS */
+
+.service-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-height: 230px;
+    padding: 32px;
+
+    text-decoration: none;
+    color: #ffffff;
+
+    background: linear-gradient(
+        145deg,
+        rgba(14, 34, 76, 0.92),
+        rgba(5, 19, 45, 0.96)
+    );
+
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    border-radius: 22px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* SUBTLE GLOW */
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at top right,
+        rgba(34, 211, 238, 0.12),
+        transparent 60%
+    );
+
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: #22d3ee;
+
+    box-shadow:
+        0 18px 45px rgba(34, 211, 238, 0.12),
+        0 0 20px rgba(34, 211, 238, 0.05);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+/* KEYBOARD ACCESSIBILITY */
+
+.service-card:focus-visible {
+    outline: 3px solid #22d3ee;
+    outline-offset: 5px;
+}
+
+/* SERVICE ICON */
+
+.service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+    margin-bottom: 22px;
+
+    font-size: 26px;
+
+    background: rgba(34, 211, 238, 0.1);
+    border: 1px solid rgba(34, 211, 238, 0.18);
+    border-radius: 15px;
+}
+
+/* SERVICE TITLE */
+
+.service-card h2 {
+    font-size: 23px;
+    line-height: 1.4;
+    margin: 0 0 15px;
+}
+
+/* SERVICE DESCRIPTION */
+
+.service-card p {
+    color: #b8c7dd;
+    font-size: 15px;
+    line-height: 1.9;
+    margin: 0 0 25px;
+}
+
+/* EXPLORE LINK */
+
+.service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: auto;
+
+    color: #22d3ee;
+    font-size: 14px;
+    font-weight: 800;
+
+    transition:
+        color 0.3s ease,
+        gap 0.3s ease;
+}
+
+.service-card:hover .service-link {
+    color: #a78bfa;
+    gap: 16px;
+}
+
+/* CALL TO ACTION */
+
+.services-cta {
+    max-width: 850px;
+    margin: 80px auto 0;
+    padding: 50px 25px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        rgba(20, 32, 72, 0.8),
+        rgba(8, 28, 54, 0.8)
+    );
+
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 24px;
+}
+
+.services-cta h2 {
+    color: #ffffff;
+    font-size: clamp(27px, 4vw, 38px);
+    margin: 0 0 15px;
+}
+
+.services-cta p {
+    color: #b8c7dd;
+    line-height: 1.9;
+    margin-bottom: 28px;
+}
+
+/* CTA BUTTON */
+
+.services-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 27px;
+
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+
+    background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+    border-radius: 12px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.services-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(34, 211, 238, 0.2);
+}
+
+/* TABLETS */
+
+@media (max-width: 850px) {
+    .services-section {
+        padding: 80px 6%;
+    }
+
+    .services-grid {
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 25px;
+    }
+}
+
+/* MOBILE PHONES */
+
+@media (max-width: 600px) {
+    .services-section {
+        padding: 65px 6%;
+    }
+
+    .services-heading {
+        margin-bottom: 40px;
+    }
+
+    .services-heading p {
+        font-size: 15px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-card {
+        min-height: 220px;
+        padding: 26px;
+    }
+
+    .service-card h2 {
+        font-size: 21px;
+    }
+
+    .services-cta {
+        margin-top: 55px;
+        padding: 38px 22px;
+    }
+
+    .services-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .service-card::before,
+    .service-link,
+    .services-button {
+        transition: none;
+    }
+
+    .service-card:hover,
+    .services-button:hover {
+        transform: none;
+    }
+}
+/* =====================================
+   NEXORA CONTACT FORM
+===================================== */
+
+.contact-section {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 90px 7%;
+}
+
+.contact-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.contact-heading h1 {
+    color: #ffffff;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.2;
+    margin: 15px 0;
+}
+
+.contact-heading h1 span {
+    background: linear-gradient(135deg, #a78bfa, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.contact-heading p {
+    color: #a9bad3;
+    line-height: 1.8;
+}
+
+.contact-form {
+    padding: 35px;
+    background: linear-gradient(
+        145deg,
+        rgba(14, 34, 76, 0.95),
+        rgba(5, 19, 45, 0.98)
+    );
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    border-radius: 22px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 16px;
+
+    color: #ffffff;
+    background: rgba(3, 12, 30, 0.8);
+
+    border: 1px solid rgba(169, 186, 211, 0.25);
+    border-radius: 11px;
+
+    font: inherit;
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #8193ad;
+}
+
+.form-group select option {
+    color: #ffffff;
+    background: #08152e;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #22d3ee;
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.contact-submit {
+    width: 100%;
+    padding: 16px 22px;
+
+    color: #ffffff;
+    background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+
+    border: none;
+    border-radius: 11px;
+
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.contact-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(34, 211, 238, 0.2);
+}
+
+.contact-submit:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+    .contact-section {
+        padding: 60px 6%;
+    }
+
+    .contact-form {
+        padding: 24px 18px;
+    }
+
+    .contact-heading p {
+        font-size: 15px;
+    }
+}
+/* ==========================================
+   NEXORA PREMIUM SERVICE SELECTOR
+========================================== */
+
+.service-selection {
+    margin-bottom: 28px;
+}
+
+.service-selection label {
+    display: block;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 13px;
+}
+
+.label-icon {
+    color: #22d3ee;
+    margin-right: 7px;
+}
+
+/* SELECT BOX CONTAINER */
+
+.service-select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 6px 16px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(14, 34, 76, 0.98),
+        rgba(5, 19, 45, 0.98)
+    );
+
+    border: 1px solid rgba(34, 211, 238, 0.25);
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* GLOW WHEN SELECTED OR FOCUSED */
+
+.service-select-wrapper:focus-within {
+    border-color: #22d3ee;
+
+    box-shadow:
+        0 0 0 3px rgba(34, 211, 238, 0.09),
+        0 8px 30px rgba(34, 211, 238, 0.08);
+}
+
+/* SERVICE ICON */
+
+.service-select-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+    width: 43px;
+    height: 43px;
+
+    font-size: 22px;
+
+    background: rgba(34, 211, 238, 0.1);
+    border: 1px solid rgba(34, 211, 238, 0.15);
+    border-radius: 12px;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.service-select-wrapper:focus-within .service-select-icon {
+    background: rgba(167, 139, 250, 0.15);
+    transform: scale(1.04);
+}
+
+/* DROPDOWN */
+
+.service-select-wrapper select {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+
+    padding: 17px 28px 17px 0;
+
+    color: #ffffff;
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* DROPDOWN OPTIONS */
+
+.service-select-wrapper select option {
+    color: #ffffff;
+    background: #08152e;
+}
+
+/* CUSTOM ARROW */
+
+.select-arrow {
+    position: absolute;
+    right: 17px;
+    top: 50%;
+
+    color: #22d3ee;
+    font-size: 23px;
+
+    pointer-events: none;
+    transform: translateY(-55%);
+}
+
+/* HELPER TEXT */
+
+.service-hint {
+    margin: 11px 2px 0;
+
+    color: #91a6c4;
+    font-size: 13px;
+    line-height: 1.7;
+
+    transition: color 0.3s ease;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .service-select-wrapper {
+        gap: 11px;
+        padding: 5px 12px;
+        border-radius: 14px;
+    }
+
+    .service-select-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 19px;
+    }
+
+    .service-select-wrapper select {
+        font-size: 14px;
+    }
+
+    .service-hint {
+        font-size: 12px;
+    }
+}
+/* ==================================
+   NEXORA RESPONSIVE DESIGN
+   ================================== */
+
+/* Prevent unwanted horizontal scrolling */
+html {
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+img,
+video {
+    height: auto;
+}
+
+/* Make common layouts flexible */
+.container,
+section,
+main {
+    max-width: 100%;
+}
+
+/* Tablets and smaller laptops */
+@media screen and (max-width: 1024px) {
+
+    .container {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+
+}
+
+/* Mobile phones */
+@media screen and (max-width: 768px) {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+    /* Navigation */
+    .navbar {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 16px 4%;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    /* Headings */
+    h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+        line-height: 1.15;
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 6vw, 2.2rem);
+    }
+
+    p {
+        line-height: 1.7;
+    }
+
+    /* Hero section */
+    .hero {
+        padding: 60px 5%;
+        text-align: center;
+    }
+
+    /* Cards and grids */
+    .services-grid,
+    .projects-grid,
+    .explore-grid,
+    .cards-container {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* Buttons */
+    button,
+    .btn,
+    .button {
+        max-width: 100%;
+    }
+
+    /* Forms */
+    input,
+    select,
+    textarea {
+        width: 100%;
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 30px 5%;
+        text-align: center;
+    }
+
+}
+
+/* Very small phones */
+@media screen and (max-width: 380px) {
+
+    .navbar {
+        padding: 12px 3%;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .nav-links {
+        gap: 9px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 45px 4%;
+    }
+
+    h1 {
+        font-size: 1.9rem;
+    }
+
+}
+/* =====================================
+   NEXORA PROFESSIONAL ANIMATIONS
+   ===================================== */
+
+/* 1. Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 2. Professional button effects */
+.btn,
+.button,
+button {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.btn:hover,
+.button:hover,
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 3. Service and project card effects */
+.service-card,
+.project-card,
+.explore-card,
+.card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.service-card:hover,
+.project-card:hover,
+.explore-card:hover,
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* 4. Navigation link effects */
+.nav-links a {
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #22d3ee;
+}
+
+/* 5. Scroll reveal animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 6. Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+/* ==========================================
+   NEXORA — PREMIUM TECH ANIMATIONS
+   ========================================== */
+
+/* Smooth page scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Premium gradient buttons */
+.btn,
+.button,
+.back-to-top {
+    position: relative;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
+}
+
+.btn:hover,
+.button:hover,
+.back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 12px rgba(34, 211, 238, 0.35),
+        0 0 25px rgba(139, 92, 246, 0.2);
+    filter: brightness(1.08);
+}
+
+/* Futuristic interactive cards */
+.service-card,
+.project-card,
+.explore-card,
+.card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.service-card:hover,
+.project-card:hover,
+.explore-card:hover,
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow:
+        0 12px 30px rgba(34, 211, 238, 0.12),
+        0 8px 25px rgba(139, 92, 246, 0.1);
+}
+
+/* Modern navigation links */
+.nav-links a {
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #22d3ee;
+}
+
+/* Floating animation — add class to selected elements */
+.nexora-float {
+    animation: nexoraFloat 4s ease-in-out infinite;
+}
+
+@keyframes nexoraFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Animated gradient text */
+.nexora-gradient-text {
+    background: linear-gradient(
+        90deg,
+        #8b5cf6,
+        #22d3ee,
+        #8b5cf6
+    );
+
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: nexoraGradient 5s linear infinite;
+}
+
+@keyframes nexoraGradient {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Accessibility: respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Mobile optimisation */
+@media (max-width: 768px) {
+    .service-card:hover,
+    .project-card:hover,
+    .explore-card:hover,
+    .card:hover,
+    .btn:hover,
+    .button:hover,
+    .back-to-top:hover {
+        transform: none;
+        filter: none;
+    }
+}

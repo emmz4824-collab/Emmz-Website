@@ -1,0 +1,133 @@
+<!-- NEXORA CONTACT FORM -->
+<section class="contact-section
+reveal">id="contact">
+
+    <div class="contact-heading">
+        <span class="section-label">GET IN TOUCH</span>
+
+        <h1>Let's Build Something <span>Great.</span></h1>
+
+        <p>
+            Have a project in mind? Tell us about it.
+            Fill in the form below and we'll get back to you.
+        </p>
+    </div>
+
+    <form 
+        class="contact-form"
+        id="conatact-form"
+    >
+
+        <!-- EMAIL SETTINGS -->
+        <input
+            type="hidden"
+            name="_subject"
+            value="New NEXORA Customer Inquiry"
+        >
+
+        <input
+            type="hidden"
+            name="_template"
+            value="table"
+        >
+
+        <!-- CUSTOMER NAME -->
+        <div class="form-group">
+            <label for="name">Full Name</label>
+
+            <input
+                type="text"
+                name="customer_name"
+                placeholder="Enter your full name"
+                required
+            >
+        </div>
+
+        <!-- CUSTOMER EMAIL -->
+        <div class="form-group">
+            <label for="email">Email Address</label>
+
+            <input
+                type="email"
+                name="customer_email"
+                placeholder="Enter your email address"
+                required
+            >
+        </div>
+
+        <!-- CUSTOMER PHONE -->
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+
+            <input
+                type="tel"
+                name="phone_number"
+                placeholder="Enter your phone number"
+                required
+            >
+        </div>
+
+        <!-- PREMIUM SERVICE SELECTOR -->
+<div class="form-group service-selection">
+
+    <label for="service">
+        <span class="label-icon">✦</span>
+        Select Your Service
+    </label>
+
+    <div class="service-select-wrapper">
+
+        <div class="service-select-icon" aria-hidden="true">
+            🌐
+        </div>
+
+        <!-- SERVICE DROPDOWN --><div class="form-group">
+    <label for="service">Select Your Service</label><select name="service_required" id="service" required>
+    <option value="" selected disabled>Select Your Service</option>
+
+    <option value="Business Websites">Business Websites</option>
+
+    <option value="Responsive Design">Responsive Design</option>
+
+    <option value="E-commerce Websites">E-commerce Websites</option>
+
+    <option value="Website Improvement">Website Improvement</option>
+
+    <option value="Other">Other</option>
+</select>
+
+</div>
+
+        <span class="select-arrow" aria-hidden="true">⌄</span>
+
+    </div>
+
+    <p class="service-hint" id="service-hint">
+        Choose the service that best matches your project.
+    </p>
+
+</div>
+        <!-- "PROJECT DETAILS" -->
+        <div class="form-group">
+            <label for="message">Tell Us About Your Project</label>
+
+            <textarea
+                name="project_details"
+                placeholder="Tell us about your project"
+                required
+            ></textarea>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <button type="submit" class="contact-submit">
+            Send Message →
+        </button>
+
+    </form>
+
+</section>
+<!-- EmailJS Library -->
+ <script 
+ src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+ <!-- NEXORA JavaScript -->
+  <script src="script.js"></script>
